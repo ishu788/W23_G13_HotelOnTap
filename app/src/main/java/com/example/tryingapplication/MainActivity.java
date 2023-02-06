@@ -8,6 +8,7 @@ import android.os.RecoverySystem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.Gson;
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         client = new OkHttpClient();
 
 
+
         responseTextView = findViewById(R.id.txt_view_first);
         Button btn_get = findViewById(R.id.button_get);
 
@@ -76,44 +78,53 @@ public class MainActivity extends AppCompatActivity {
         TextInputEditText txt_input  = findViewById(R.id.input_city);
         String city_search = txt_input.getText().toString();
 
+        if(city_search.isEmpty())
+        {
+            Toast.makeText(this, "Please enter a valid city/place", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            //creating api request with preferences
+            Request request = new Request.Builder()
+                    .url("https://airbnb13.p.rapidapi.com/search-location?location="+ city_search + "&checkin=2023-05-16&checkout=2023-05-17&adults=1&children=0&infants=0&page=1")
+                    .get()
+                    .addHeader("X-RapidAPI-Key", "93b3a66a9dmsh5ae2d82728f08bcp10ba41jsncdaba24863ed")
+                    .addHeader("X-RapidAPI-Host", "airbnb13.p.rapidapi.com")
+                    .build();
 
-        //creating api request with preferences
-        Request request = new Request.Builder()
-                .url("https://airbnb13.p.rapidapi.com/search-location?location="+ city_search + "&checkin=2023-05-16&checkout=2023-05-17&adults=1&children=0&infants=0&page=1")
-                .get()
-                .addHeader("X-RapidAPI-Key", "93b3a66a9dmsh5ae2d82728f08bcp10ba41jsncdaba24863ed")
-                .addHeader("X-RapidAPI-Host", "airbnb13.p.rapidapi.com")
-                .build();
+            client.newCall(request).enqueue(new Callback() {
+                @Override
+                public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                    e.printStackTrace();
+                }
 
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                e.printStackTrace();
-            }
+                @Override
+                public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
 
-            @Override
-            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-
-                            //handling json data creating json data to string then passing it to rescap class to
-                            //to convert json data into readable format.
-                            String jsonString = response.body().string();
-                            Gson gson = new Gson();
-                            JsonElement jsonElement = gson.fromJson(jsonString, JsonElement.class);
-                            JsonArray jsonArray = jsonElement.getAsJsonObject().get("results").getAsJsonArray();
-                            rescap.store_Data(jsonArray);
-                            System.out.println(rescap.images.get(2));
+                                //handling json data creating json data to string then passing it to rescap class to
+                                //to convert json data into readable format.
+                                String jsonString = response.body().string();
+                                Gson gson = new Gson();
+                                JsonElement jsonElement = gson.fromJson(jsonString, JsonElement.class);
+                                JsonArray jsonArray = jsonElement.getAsJsonObject().get("results").getAsJsonArray();
+                                rescap.store_Data(jsonArray);
+                                System.out.println(rescap.images.get(2));
+                            }
+                            catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
-                         catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-            }
-        });
+                    });
+                }
+            });
+        }
+
+
+
 
 
     }
