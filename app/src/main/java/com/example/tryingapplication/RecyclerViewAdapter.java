@@ -4,21 +4,22 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     private final Context context;
-    private final ArrayList<String>arrayList;
+    private List<ListItem> listitems;
 
-    public RecyclerViewAdapter(Context context, ArrayList<String> arrayList) {
+    public RecyclerViewAdapter(Context context, List<ListItem> listitems) {
         this.context = context;
-        this.arrayList = arrayList;
+        this.listitems = listitems;
     }
 
 
@@ -31,23 +32,33 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder holder, int position) {
-      holder.name.setText(arrayList.get(position));
+      ListItem listItem = listitems.get(position);
+      holder.id.setText(listItem.getId());
+      holder.name.setText(listItem.getName());
+      holder.urls.setText(listItem.getUrl());
+
+
+
     }
 
     @Override
     public int getItemCount() {
-        return arrayList.size();
+        return listitems.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        TextView id;
         TextView name;
-        TextView lat;
+        TextView urls;
+        ImageView hostThumbnail;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.names);
-            lat = itemView.findViewById(R.id.lat);
+            id = itemView.findViewById(R.id.ids);
+            urls = itemView.findViewById(R.id.urls);
+            hostThumbnail = itemView.findViewById(R.id.hostThumbnail);
         }
     }
 }

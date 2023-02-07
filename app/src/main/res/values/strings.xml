@@ -3,4 +3,8 @@
     <string name="json_data_try">Hello</string>
     <string name="btn_get">GetData</string>
     <string name="city_name">Enter City</string>
+    <string name="recycle_id">ID</string>
+    <string name="recycle_name">Names</string>
+    <string name="recycle_url">urls</string>
+    <string name="img_description">Description</string>
 </resources>

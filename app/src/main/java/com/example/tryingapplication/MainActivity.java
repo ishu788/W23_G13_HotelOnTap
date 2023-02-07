@@ -15,9 +15,13 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -35,14 +39,18 @@ public class MainActivity extends AppCompatActivity {
 
     //recycler view
     private RecyclerView recyclerView;
-    private RecyclerViewAdapter recyclerViewAdapter;
+    private RecyclerView.Adapter recyclerViewAdapter;
+
+    private List<ListItem> listItem;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //creating a new object to capture properties of results
-        rescap rescap = new rescap();
 
         //defining new http client
         client = new OkHttpClient();
@@ -53,7 +61,10 @@ public class MainActivity extends AppCompatActivity {
         Button btn_get = findViewById(R.id.button_get);
 
         recyclerView = findViewById(R.id.recycler_view1);
+        recyclerView.setHasFixedSize(true);
 
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        listItem = new ArrayList<>();
 
 
         //setting on click listener
@@ -68,16 +79,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-    public void setRecyclerView()
-    {
-        System.out.println(rescap.lat);
-        recyclerViewAdapter = new RecyclerViewAdapter(this,rescap.names);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(recyclerViewAdapter);
-
-    }
-
     public void get()
     {
         TextInputEditText txt_input  = findViewById(R.id.input_city);
@@ -109,15 +110,28 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             try {
-
                                 //handling json data creating json data to string then passing it to rescap class to
                                 //to convert json data into readable format.
                                 String jsonString = response.body().string();
                                 Gson gson = new Gson();
                                 JsonElement jsonElement = gson.fromJson(jsonString, JsonElement.class);
                                 JsonArray jsonArray = jsonElement.getAsJsonObject().get("results").getAsJsonArray();
-                                rescap.store_Data(jsonArray);
-                                setRecyclerView();
+
+                                for(int i = 0; i < jsonArray.size()/2;i++)
+                                {
+                                    JsonObject o = jsonArray.get(i).getAsJsonObject();
+                                    ListItem item = new ListItem(
+                                            o.get("id").getAsString(),
+                                            o.get("name").getAsString(),
+                                            o.get("url").getAsString(),
+                                            o.get("hostThumbnail").getAsString()
+                                    );
+                                    listItem.add(item);
+                                }
+                                recyclerViewAdapter = new RecyclerViewAdapter(getApplicationContext(),listItem);
+                                recyclerView.setAdapter(recyclerViewAdapter);
+                               // rescap.store_Data(jsonArray);
+
 
                             }
                             catch (IOException e) {

@@ -1,4 +1,4 @@
-package com.example.tryingapplication;
+/*package com.example.tryingapplication;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -78,4 +78,4 @@ public class rescap {
     }
 
 
-}
+}*/
