@@ -10,12 +10,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     private final Context context;
-    private List<ListItem> listitems;
+    public static List<ListItem> listitems;
 
     public RecyclerViewAdapter(Context context, List<ListItem> listitems) {
         this.context = context;
@@ -31,11 +33,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
       ListItem listItem = listitems.get(position);
       holder.id.setText(listItem.getId());
       holder.name.setText(listItem.getName());
       holder.urls.setText(listItem.getUrl());
+        Picasso.get().load(listItem.getImage_item().get(1))
+                .into(holder.hostThumbnail);
 
 
 

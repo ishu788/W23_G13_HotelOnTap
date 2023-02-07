@@ -42,8 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter recyclerViewAdapter;
 
     private List<ListItem> listItem;
-
-
+    private List<String> images_url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void get()
     {
+
         TextInputEditText txt_input  = findViewById(R.id.input_city);
         String city_search = txt_input.getText().toString();
 
@@ -120,11 +120,15 @@ public class MainActivity extends AppCompatActivity {
                                 for(int i = 0; i < jsonArray.size()/2;i++)
                                 {
                                     JsonObject o = jsonArray.get(i).getAsJsonObject();
+                                    JsonArray imagesArray = o.getAsJsonObject().get("images").getAsJsonArray();
+                                    System.out.println(imagesArray.size());
+                                   images_url = gson.fromJson(imagesArray,List.class);
                                     ListItem item = new ListItem(
                                             o.get("id").getAsString(),
                                             o.get("name").getAsString(),
                                             o.get("url").getAsString(),
-                                            o.get("hostThumbnail").getAsString()
+                                            o.get("hostThumbnail").getAsString(),
+                                            images_url
                                     );
                                     listItem.add(item);
                                 }
