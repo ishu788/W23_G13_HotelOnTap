@@ -47,7 +47,6 @@ public class rescap {
             //get list of city
             city.add(obj.get("city").getAsString());
 
-
             //get json images array convert it into arraylist of arraylists
             ArrayList<String> a1 = new ArrayList<>();
             JsonArray image_url = obj.get("images").getAsJsonArray();
@@ -57,6 +56,23 @@ public class rescap {
             }
             images.add(a1);
 
+            // list of host thumbnails
+            host_thumbnail.add(obj.get("hostThumbnail").getAsString());
+
+            //latitude list of all locations
+            lat.add(obj.get("lat").getAsString());
+
+            //longitude list of all locations
+            lng.add(obj.get("lng").getAsString());
+
+            // list of ratings of all places
+            //rating.add(obj.get("rating").getAsString());
+
+            //property type of all location
+            property_type.add(obj.get("type").getAsString());
+
+            //full address of all places
+            address.add(obj.get("address").getAsString());
 
         }
     }

@@ -2,9 +2,10 @@ package com.example.tryingapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.os.RecoverySystem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,23 +15,12 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.OkHttp;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -41,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
     OkHttpClient client;
     TextView responseTextView;
-    public ArrayList<String> names = new ArrayList<>();
 
 
-
-
+    //recycler view
+    private RecyclerView recyclerView;
+    private RecyclerViewAdapter recyclerViewAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,19 +47,34 @@ public class MainActivity extends AppCompatActivity {
         //defining new http client
         client = new OkHttpClient();
 
-
+        // reference to design elements
 
         responseTextView = findViewById(R.id.txt_view_first);
         Button btn_get = findViewById(R.id.button_get);
 
+        recyclerView = findViewById(R.id.recycler_view1);
+
+
 
         //setting on click listener
+
         btn_get.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 get();
+
             }
+
         });
+
+    }
+
+    public void setRecyclerView()
+    {
+        System.out.println(rescap.lat);
+        recyclerViewAdapter = new RecyclerViewAdapter(this,rescap.names);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(recyclerViewAdapter);
 
     }
 
@@ -112,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
                                 JsonElement jsonElement = gson.fromJson(jsonString, JsonElement.class);
                                 JsonArray jsonArray = jsonElement.getAsJsonObject().get("results").getAsJsonArray();
                                 rescap.store_Data(jsonArray);
-                                System.out.println(rescap.images.get(2));
+                                setRecyclerView();
+
                             }
                             catch (IOException e) {
                                 e.printStackTrace();
