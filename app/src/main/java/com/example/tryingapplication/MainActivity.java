@@ -2,6 +2,7 @@ package com.example.tryingapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.util.Pair;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.datepicker.MaterialDatePicker;
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -21,7 +24,10 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -31,6 +37,10 @@ import okhttp3.Response;
 
 
 public class MainActivity extends AppCompatActivity {
+
+
+    public Button datePicker;
+
 
 
     OkHttpClient client;
@@ -49,6 +59,42 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Date Picker
+
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+        calendar.clear();
+        Long today = MaterialDatePicker.todayInUtcMilliseconds();
+
+
+
+        datePicker = findViewById(R.id.bt_pick_date);
+        MaterialDatePicker.Builder<Pair<Long, Long>> builder = MaterialDatePicker.Builder.dateRangePicker();
+        builder.setTitleText("Pick a Date");
+
+        final MaterialDatePicker materialDatePicker = builder.build();
+
+        materialDatePicker.show(getSupportFragmentManager(), materialDatePicker.toString());
+
+        materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Pair<Long, Long>>() {
+            @Override public void onPositiveButtonClick(Pair<Long,Long> selection) {
+                Long startDate = selection.first;
+                Long endDate = selection.second;
+
+                long msDiff = endDate - startDate;
+                long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
+
+                TextView textViewDays = findViewById(R.id.daysSelected);
+                textViewDays.setText("" + daysDiff);
+            }
+        });
+
+
+
+
+
+
+
+
         //creating a new object to capture properties of results
 
         //defining new http client
@@ -56,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
         // reference to design elements
 
-        responseTextView = findViewById(R.id.txt_view_first);
+
         Button btn_get = findViewById(R.id.button_get);
 
         recyclerView = findViewById(R.id.recycler_view1);
