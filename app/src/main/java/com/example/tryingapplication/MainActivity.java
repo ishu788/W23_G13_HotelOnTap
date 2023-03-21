@@ -65,33 +65,13 @@ public class MainActivity extends AppCompatActivity {
         calendar.clear();
         Long today = MaterialDatePicker.todayInUtcMilliseconds();
 
-
-
         datePicker = findViewById(R.id.bt_pick_date);
-        MaterialDatePicker.Builder<Pair<Long, Long>> builder = MaterialDatePicker.Builder.dateRangePicker();
-        builder.setTitleText("Pick a Date");
-
-        final MaterialDatePicker materialDatePicker = builder.build();
-
-        materialDatePicker.show(getSupportFragmentManager(), materialDatePicker.toString());
-
-        materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Pair<Long, Long>>() {
-            @Override public void onPositiveButtonClick(Pair<Long,Long> selection) {
-                Long startDate = selection.first;
-                Long endDate = selection.second;
-
-                long msDiff = endDate - startDate;
-                long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
-
-                TextView textViewDays = findViewById(R.id.daysSelected);
-                textViewDays.setText("" + daysDiff);
+        datePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePick();
             }
         });
-
-
-
-
-
 
 
 
@@ -125,6 +105,34 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
+    public void DatePick(){
+
+        MaterialDatePicker.Builder<Pair<Long, Long>> builder = MaterialDatePicker.Builder.dateRangePicker();
+        builder.setTitleText("Pick a Date");
+
+        final MaterialDatePicker materialDatePicker = builder.build();
+
+        materialDatePicker.show(getSupportFragmentManager(), materialDatePicker.toString());
+
+        materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Pair<Long, Long>>() {
+            @Override public void onPositiveButtonClick(Pair<Long,Long> selection) {
+                Long startDate = selection.first;
+                Long endDate = selection.second;
+
+                long msDiff = endDate - startDate;
+                long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
+
+                TextView textViewDays = findViewById(R.id.daysSelected);
+                textViewDays.setText("" + daysDiff);
+            }
+        });
+    }
+
+
+
+
     public void get()
     {
 
