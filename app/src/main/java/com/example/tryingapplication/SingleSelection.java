@@ -15,7 +15,7 @@ public class SingleSelection extends AppCompatActivity {
         setContentView(R.layout.activity_single_selection);
 
         TextView hotelName =findViewById(R.id.hotelName);
-        TextView hotelUrl = findViewById(R.id.hotelPrice);
+        TextView hotelUrl = findViewById(R.id.hotelLocation);
         TextView hotelPrice =findViewById(R.id.hotelPrice);
 
 
