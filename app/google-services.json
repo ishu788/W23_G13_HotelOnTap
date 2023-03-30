@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "807328308961",
+    "project_id": "hotelontap",
+    "storage_bucket": "hotelontap.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807328308961:android:b35c7ab5b14de8f6da21a0",
+        "android_client_info": {
+          "package_name": "com.example.tryingapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "807328308961-i1p3f0epvbgon3gg2i2d9u98jev3etr8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeKKNTtPBsOGFcGbFUTgLzz0OENYWznjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "807328308961-i1p3f0epvbgon3gg2i2d9u98jev3etr8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
