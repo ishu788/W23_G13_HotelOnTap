@@ -74,6 +74,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             Intent intent = new Intent(context,SingleSelection.class);
             Toast.makeText(context, "position"+position, Toast.LENGTH_SHORT).show();
             intent.putExtra("name",listitems.get(position).getName());
+            intent.putExtra("location",listitems.get(position).getUrl());
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             context.startActivity(intent);

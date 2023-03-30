@@ -22,4 +22,7 @@
     <string name="redirectToLogin">Login</string>
     <string name="redirectToSignUpText">New to This App?</string>
     <string name="redirectToSignUp">Sign Up</string>
+    <string name="firstNameView">Hotel name</string>
+    <string name="finalHotelLocation">Location</string>
+    <string name="finalPrice">Price</string>
 </resources>
