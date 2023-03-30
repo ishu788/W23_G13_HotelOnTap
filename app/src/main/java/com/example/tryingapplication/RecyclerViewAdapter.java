@@ -42,6 +42,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
       holder.urls.setText(listItem.getUrl());
         Picasso.get().load(listItem.getImage_item().get(1))
                 .into(holder.hostThumbnail);
+        holder.price.setText(listItem.getPrice());
+
 
 
 
@@ -58,6 +60,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView name;
         TextView urls;
         ImageView hostThumbnail;
+        TextView price;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +68,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             id = itemView.findViewById(R.id.ids);
             urls = itemView.findViewById(R.id.urls);
             hostThumbnail = itemView.findViewById(R.id.hostThumbnail);
+            price = itemView.findViewById(R.id.recycle_Price);
             itemView.setOnClickListener(this);
         }
 
@@ -75,6 +79,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             Toast.makeText(context, "position"+position, Toast.LENGTH_SHORT).show();
             intent.putExtra("name",listitems.get(position).getName());
             intent.putExtra("location",listitems.get(position).getUrl());
+            intent.putExtra("price",listitems.get(position).getPrice());
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             context.startActivity(intent);

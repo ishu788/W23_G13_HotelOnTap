@@ -176,16 +176,17 @@ public class MainActivity extends AppCompatActivity {
                                 for(int i = 0; i < jsonArray.size()/2;i++)
                                 {
                                     JsonObject o = jsonArray.get(i).getAsJsonObject();
+                                    String prices = o.get("price").getAsJsonObject().get("total").getAsString();
                                     JsonArray imagesArray = o.getAsJsonObject().get("images").getAsJsonArray();
 
-                                    System.out.println(imagesArray.size());
+                                    System.out.println(prices);
                                    images_url = gson.fromJson(imagesArray,List.class);
                                     ListItem item = new ListItem(
                                             o.get("id").getAsString(),
                                             o.get("name").getAsString(),
                                             o.get("url").getAsString(),
                                             o.get("hostThumbnail").getAsString(),
-                                            images_url
+                                            images_url,prices
                                     );
                                     listItem.add(item);
                                 }

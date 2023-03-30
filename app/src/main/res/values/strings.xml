@@ -25,4 +25,5 @@
     <string name="firstNameView">Hotel name</string>
     <string name="finalHotelLocation">Location</string>
     <string name="finalPrice">Price</string>
+    <string name="recycle_Price">Price</string>
 </resources>
