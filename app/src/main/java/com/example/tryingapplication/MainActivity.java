@@ -1,16 +1,16 @@
 package com.example.tryingapplication;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
@@ -19,6 +19,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -72,9 +74,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        //just making changes to push
-
-
 
         //creating a new object to capture properties of results
 
@@ -125,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
                 long msDiff = endDate - startDate;
                 long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
 
-
+                TextView textViewDays = findViewById(R.id.daysSelected);
+                textViewDays.setText("" + daysDiff);
             }
         });
     }
@@ -175,17 +175,15 @@ public class MainActivity extends AppCompatActivity {
                                 for(int i = 0; i < jsonArray.size()/2;i++)
                                 {
                                     JsonObject o = jsonArray.get(i).getAsJsonObject();
-                                    String prices = o.get("price").getAsJsonObject().get("total").getAsString();
                                     JsonArray imagesArray = o.getAsJsonObject().get("images").getAsJsonArray();
-
-                                    System.out.println(prices);
+                                    System.out.println(imagesArray.size());
                                    images_url = gson.fromJson(imagesArray,List.class);
                                     ListItem item = new ListItem(
                                             o.get("id").getAsString(),
                                             o.get("name").getAsString(),
                                             o.get("url").getAsString(),
                                             o.get("hostThumbnail").getAsString(),
-                                            images_url,prices
+                                            images_url
                                     );
                                     listItem.add(item);
                                 }

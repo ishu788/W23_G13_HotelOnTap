@@ -1,5 +1,7 @@
 package com.example.tryingapplication;
 
+import com.google.gson.JsonArray;
+
 import java.util.List;
 
 public class ListItem {
@@ -8,7 +10,6 @@ public class ListItem {
     private String name;
     private String url;
     private String hostThumbnail;
-    private String price;
     private List<String> image_item;
 
     public List<String> getImage_item() {
@@ -31,16 +32,11 @@ public class ListItem {
         return url;
     }
 
-    public String getPrice() {
-        return price;
-    }
-
-    public ListItem(String id, String name, String url, String hostThumbnail, List images, String price) {
+    public ListItem(String id, String name, String url, String hostThumbnail,List images) {
         this.id = id;
         this.name = name;
         this.url = url;
         this.hostThumbnail = hostThumbnail;
         this.image_item = images;
-        this.price=price;
     }
 }
