@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">TryingApplication</string>
+    <string name="json_data_try">Hello</string>
+    <string name="btn_get">GetData</string>
+    <string name="city_name">Enter City</string>
+    <string name="recycle_id">ID</string>
+    <string name="recycle_name">Names</string>
+    <string name="recycle_url">urls</string>
+    <string name="img_description">Description</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="action_SignUp">Sign Up</string>
+    <string name="NewPrompt">Already have an account?</string>
+    <string name="ClickToLogin">Login</string>
+    <string name="redirectToLogin">Login</string>
+    <string name="redirectToSignUpText">New to This App?</string>
+    <string name="redirectToSignUp">Sign Up</string>
+    <string name="txtCardType">Card Type</string>
+    <string name="radVisaCard">Visa Card</string>
+    <string name="radioMasterCard">Master Card</string>
+    <string name="radioAmExCard">AmExCard</string>
+    <string name="radioGooglePay">Google Pay</string>
+    <string name="txtNameOnCard">Name On Card</string>
+    <string name="txtCardNumber">Card Number</string>
+    <string name="txtExpiryCode">Expiry Date</string>
+    <string name="txtSecurityCode">Security Code</string>
+    <string name="btnPay">Pay</string>
+</resources>
