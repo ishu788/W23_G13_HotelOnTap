@@ -18,7 +18,7 @@ public class SingleSelection extends AppCompatActivity {
         TextView hotelUrl = findViewById(R.id.hotelLocation);
         TextView hotelPrice =findViewById(R.id.hotelPrice);
 
-
+//gg
         Intent intent1 = getIntent();
         String name = intent1.getStringExtra("name");
         String url = intent1.getStringExtra("location");
