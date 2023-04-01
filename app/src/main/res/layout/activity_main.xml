@@ -4,35 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/splash11"
+    android:backgroundTint="#AD1B1A1A"
+    android:backgroundTintMode="src_atop"
     tools:context=".MainActivity">
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view1"
         android:layout_width="335dp"
         android:layout_height="673dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.528" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_get">
-
-    </com.google.android.material.textfield.TextInputLayout>
-
+        app:layout_constraintTop_toBottomOf="@+id/button_get" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bt_pick_date"
@@ -40,47 +28,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="100dp"
-        android:text="Pick Date"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="268dp"
-        tools:layout_editor_absoluteY="27dp"></com.google.android.material.button.MaterialButton>
+        android:layout_marginTop="112dp"
+        android:text="@string/PickDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"></com.google.android.material.button.MaterialButton>
 
     <Button
         android:id="@+id/button_get"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="12dp"
         android:text="@string/btn_get"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.149"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_city" />
-
-    <TextView
-        android:id="@+id/daysSelected"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_view1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.696"
-        app:layout_constraintStart_toEndOf="@+id/button_get"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.576" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/input_city"
         android:layout_width="239dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
         android:hint="@string/city_name"
-        android:textColorHint="#616161"
-        app:layout_constraintBottom_toTopOf="@+id/button_get"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.093"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.41000003"
         tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck,TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

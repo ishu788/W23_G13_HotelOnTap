@@ -26,4 +26,5 @@
     <string name="finalHotelLocation">Location</string>
     <string name="finalPrice">Price</string>
     <string name="recycle_Price">Price</string>
+    <string name="PickDate">Pick Date</string>
 </resources>
