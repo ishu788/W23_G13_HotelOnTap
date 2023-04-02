@@ -1,6 +1,7 @@
 package com.example.tryingapplication;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +48,11 @@ public class SingleSelection extends AppCompatActivity {
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("Its here");
+                Uri location = Uri.parse("geo:" + lat + "," +lng );
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, location);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                    startActivity(mapIntent);
 
             }
         });
