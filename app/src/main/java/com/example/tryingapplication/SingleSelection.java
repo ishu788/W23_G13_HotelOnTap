@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +20,11 @@ public class SingleSelection extends AppCompatActivity {
         TextView hotelPrice =findViewById(R.id.hotelPrice);
         Button btnToPay = findViewById(R.id.btnToPay);
 
+        TextView hotelLat = findViewById(R.id.hotelLat);
+        TextView hotelLong = findViewById(R.id.hotelLng);
+
+        Button btnMap = findViewById(R.id.openMap);
+
 
 
 //gg
@@ -28,14 +32,24 @@ public class SingleSelection extends AppCompatActivity {
         String name = intent1.getStringExtra("name");
         String url = intent1.getStringExtra("location");
         String price = intent1.getStringExtra("price");
-        Toast.makeText(this, "name"+name, Toast.LENGTH_SHORT).show();
+        String lat = intent1.getStringExtra("latitude");
+        String lng = intent1.getStringExtra("longitude");
 
 
         hotelName.setText(name);
         hotelUrl.setText(url);
         hotelPrice.setText(price);
+        hotelLat.setText(lat);
+        hotelLong.setText(lng);
 
 
+
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         btnToPay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,5 +58,7 @@ public class SingleSelection extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 }

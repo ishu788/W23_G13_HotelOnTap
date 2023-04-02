@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -59,6 +58,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView urls;
         ImageView hostThumbnail;
 
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.names);
@@ -72,9 +72,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public void onClick(View v) {
             int position = getAdapterPosition();
             Intent intent = new Intent(context,SingleSelection.class);
-            Toast.makeText(context, "position"+position, Toast.LENGTH_SHORT).show();
+           // Toast.makeText(context, "position"+position, Toast.LENGTH_SHORT).show();
             intent.putExtra("name",listitems.get(position).getName());
+            intent.putExtra("location",listitems.get(position).getUrl());
+            intent.putExtra("price",listitems.get(position).getPrice());
+            intent.putExtra("latitude",listitems.get(position).getLatitude());
+            intent.putExtra("longitude",listitems.get(position).getLongitude());
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
 
             context.startActivity(intent);
 

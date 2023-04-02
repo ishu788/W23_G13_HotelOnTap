@@ -35,4 +35,8 @@
     <string name="txtExpiryCode">Expiry Date</string>
     <string name="txtSecurityCode">Security Code</string>
     <string name="btnPay">Pay</string>
+    <string name="longitiude">Longitude</string>
+    <string name="latitudeView">Latitude</string>
+    <string name="btnBook">Book</string>
+    <string name="OpenMap">MapView</string>
 </resources>
