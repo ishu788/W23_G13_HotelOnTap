@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/abhaya_libre_semibold</item>
+        <item>@font/alegreya_sc_bold</item>
+        <item>@font/annie_use_your_telescope</item>
+        <item>@font/antic_didone</item>
+        <item>@font/arsenal</item>
+        <item>@font/arsenal_bold</item>
+    </array>
+</resources>

@@ -3,6 +3,7 @@ package com.example.tryingapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,8 @@ public class splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
 
 
         Button button = findViewById(R.id.button_splash);
@@ -22,6 +25,7 @@ public class splash extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), LoginActivity.class);
                 v.getContext().startActivity(intent);
+
             }
         });
     }

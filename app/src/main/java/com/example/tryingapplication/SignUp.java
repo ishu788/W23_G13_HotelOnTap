@@ -3,6 +3,7 @@ package com.example.tryingapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -33,6 +34,8 @@ public class SignUp extends AppCompatActivity {
         signUpPassword=findViewById(R.id.LoginPassword);
         signUpButton=findViewById(R.id.signUpBtn);
         loginRedirectText=findViewById(R.id.redirectToLogin);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
