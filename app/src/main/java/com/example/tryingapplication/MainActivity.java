@@ -64,12 +64,7 @@ public class MainActivity extends AppCompatActivity {
         Long today = MaterialDatePicker.todayInUtcMilliseconds();
 
         datePicker=findViewById(R.id.bt_Pick_Date);
-        datePicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DatePick();
-            }
-        });
+        datePicker.setOnClickListener(v -> DatePick());
 
 
 
@@ -107,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void DatePick(){
 
+        System.out.println("DatePicked");
         MaterialDatePicker.Builder<Pair<Long, Long>> builder = MaterialDatePicker.Builder.dateRangePicker();
         builder.setTitleText("Pick a Date");
 
