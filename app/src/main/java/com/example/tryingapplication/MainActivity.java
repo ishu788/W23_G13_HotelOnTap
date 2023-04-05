@@ -110,14 +110,12 @@ public class MainActivity extends AppCompatActivity {
 
         materialDatePicker.show(getSupportFragmentManager(), materialDatePicker.toString());
 
-        materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Pair<Long, Long>>() {
-            @Override public void onPositiveButtonClick(Pair<Long,Long> selection) {
-                Long startDate = selection.first;
-                Long endDate = selection.second;
+        materialDatePicker.addOnPositiveButtonClickListener((MaterialPickerOnPositiveButtonClickListener<Pair<Long, Long>>) selection -> {
+            Long startDate = selection.first;
+            Long endDate = selection.second;
 
-                long msDiff = endDate - startDate;
-                long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
-            }
+            long msDiff = endDate - startDate;
+            long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
         });
     }
 
@@ -170,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                                     System.out.println(imagesArray.size());
                                    images_url = gson.fromJson(imagesArray,List.class);
                                     ListItem item = new ListItem(
-                                            o.get("id").getAsString(),
+                                            o.get("type").getAsString(),
                                             o.get("name").getAsString(),
                                             o.get("url").getAsString(),
                                             o.get("hostThumbnail").getAsString(),

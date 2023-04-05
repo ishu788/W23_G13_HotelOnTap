@@ -36,7 +36,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
       ListItem listItem = listitems.get(position);
-    //  holder.id.setText(listItem.getId());
+      holder.price.setText( "$" + listItem.getPrice());
+      holder.id.setText(listItem.getId());
       holder.name.setText(listItem.getName());
         Picasso.get().load(listItem.getImage_item().get(1))
                 .into(holder.hostThumbnail);
@@ -52,16 +53,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
 
-       // TextView id;
+       TextView id;
         TextView name;
         //TextView urls;
         ImageView hostThumbnail;
+        TextView price;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.names);
-           // id = itemView.findViewById(R.id.ids);
+            price=itemView.findViewById(R.id.item_Price);
+            id = itemView.findViewById(R.id.ids);
            // urls = itemView.findViewById(R.id.urls);
             hostThumbnail = itemView.findViewById(R.id.hostThumbnail);
             itemView.setOnClickListener(this);
@@ -73,10 +76,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             Intent intent = new Intent(context,SingleSelection.class);
            // Toast.makeText(context, "position"+position, Toast.LENGTH_SHORT).show();
             intent.putExtra("name",listitems.get(position).getName());
-            intent.putExtra("location",listitems.get(position).getUrl());
+            intent.putExtra("location",listitems.get(position).getId());
             intent.putExtra("price",listitems.get(position).getPrice());
             intent.putExtra("latitude",listitems.get(position).getLatitude());
             intent.putExtra("longitude",listitems.get(position).getLongitude());
+            intent.putExtra("img1", listitems.get(position).getImage_item().get(2));
+            intent.putExtra("img2", listitems.get(position).getImage_item().get(3));
+            intent.putExtra("img3", listitems.get(position).getImage_item().get(4));
+
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
 

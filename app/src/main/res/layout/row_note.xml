@@ -18,17 +18,43 @@
         android:background="#23A5ADAF"
         android:padding="15dp">
 
+        <TextView
+            android:id="@+id/item_Price"
+            android:layout_width="wrap_content"
+            android:layout_height="126dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="63dp"
+            android:layout_marginTop="98dp"
+            android:layout_marginEnd="29dp"
+            android:layout_toEndOf="@+id/hostThumbnail"
+            android:gravity="center_vertical"
+            android:text="TextView"
+            android:textColor="#80D8FF"
+            android:textSize="34sp" />
+
         <ImageView
             android:id="@+id/hostThumbnail"
             android:layout_width="171dp"
             android:layout_height="170dp"
             android:layout_below="@+id/names"
-            android:layout_alignParentEnd="true"
             android:layout_marginTop="22dp"
-            android:layout_marginEnd="209dp"
             android:contentDescription="@string/img_description"
             tools:ignore="ImageContrastCheck"
             tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/ids"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_Price"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="44dp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/names"

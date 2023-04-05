@@ -22,20 +22,23 @@
         app:layout_constraintHorizontal_bias="0.707"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.484" />
-
+        app:layout_constraintVertical_bias="0.32" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
-        android:layout_width="236dp"
-        android:layout_height="55dp"
+        android:layout_width="303dp"
+        android:layout_height="61dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@drawable/bgbtn"
+        android:textColorHint="#FFFFFF"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="#F1F1F1"
+        app:counterOverflowTextAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,10 +47,15 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_city"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/bgbtn"
+            android:layout_height="46dp"
+            android:background="@drawable/transparent_background"
+            android:foregroundGravity="center_vertical"
             android:hint="@string/city_name"
-            android:textColorHint="#616161"
+            android:includeFontPadding="true"
+            android:paddingLeft="10dp"
+            android:textColor="#FFFEFE"
+            android:textColorHint="#F6F6F6"
+            android:textStyle="normal"
             tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck,TouchTargetSizeCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -56,23 +64,26 @@
         android:id="@+id/button_get"
         android:layout_width="110dp"
         android:layout_height="49dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         android:layout_weight="1"
         android:background="@drawable/txtgrad"
         android:text="@string/ButtonGetInfo"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintHorizontal_bias="0.601"
         app:layout_constraintStart_toEndOf="@+id/bt_Pick_Date"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
     <Button
         android:id="@+id/bt_Pick_Date"
+
         android:layout_width="111dp"
         android:layout_height="49dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="264dp"
         android:background="@drawable/txtgrad"
         android:text="@string/PickDate"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 

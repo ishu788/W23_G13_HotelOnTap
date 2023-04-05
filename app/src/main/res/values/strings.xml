@@ -22,9 +22,9 @@
     <string name="redirectToLogin">Login</string>
     <string name="redirectToSignUpText">New to This App?</string>
     <string name="redirectToSignUp">Sign Up</string>
-    <string name="firstNameView">Name</string>
-    <string name="finalHotelLocation">Location</string>
-    <string name="finalPrice">Price</string>
+    <string name="firstNameView">Name : </string>
+    <string name="finalHotelLocation">Location : </string>
+    <string name="finalPrice">Price : </string>
     <string name="txtCardType">Card Type</string>
     <string name="radVisaCard">Visa Card</string>
     <string name="radioMasterCard">Master Card</string>
@@ -41,4 +41,5 @@
     <string name="OpenMap">MapView</string>
     <string name="PickDate">Pick Date</string>
     <string name="ButtonGetInfo">Search</string>
+    <string name="HotelDetails">Hotel Details</string>
 </resources>

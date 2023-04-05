@@ -5,9 +5,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.squareup.picasso.Picasso;
 
 public class SingleSelection extends AppCompatActivity {
 
@@ -21,8 +24,10 @@ public class SingleSelection extends AppCompatActivity {
         TextView hotelPrice =findViewById(R.id.hotelPrice);
         Button btnToPay = findViewById(R.id.btnToPay);
 
-        TextView hotelLat = findViewById(R.id.hotelLat);
-        TextView hotelLong = findViewById(R.id.hotelLng);
+        ImageView img1 = findViewById(R.id.img1);
+        ImageView img2 = findViewById(R.id.img2);
+        ImageView img3 = findViewById(R.id.img3);
+
 
         Button btnMap = findViewById(R.id.openMap);
 
@@ -35,13 +40,26 @@ public class SingleSelection extends AppCompatActivity {
         String price = intent1.getStringExtra("price");
         String lat = intent1.getStringExtra("latitude");
         String lng = intent1.getStringExtra("longitude");
+        String image1= intent1.getStringExtra("img1");
+        String image2= intent1.getStringExtra("img2");
+        String image3= intent1.getStringExtra("img3");
 
 
+
+
+
+        //loading images
+        Picasso.get().load(image1)
+                .into(img1);
+        Picasso.get().load(image2)
+                .into(img2);
+        Picasso.get().load(image3)
+                .into(img3);
+
+        //setting everything else
         hotelName.setText(name);
         hotelUrl.setText(url);
         hotelPrice.setText(price);
-        hotelLat.setText(lat);
-        hotelLong.setText(lng);
 
 
 
