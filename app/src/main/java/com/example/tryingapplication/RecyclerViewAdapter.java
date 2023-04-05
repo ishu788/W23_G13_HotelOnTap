@@ -36,9 +36,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
       ListItem listItem = listitems.get(position);
-      holder.id.setText(listItem.getId());
+    //  holder.id.setText(listItem.getId());
       holder.name.setText(listItem.getName());
-      holder.urls.setText(listItem.getUrl());
         Picasso.get().load(listItem.getImage_item().get(1))
                 .into(holder.hostThumbnail);
 
@@ -53,17 +52,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
 
-        TextView id;
+       // TextView id;
         TextView name;
-        TextView urls;
+        //TextView urls;
         ImageView hostThumbnail;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.names);
-            id = itemView.findViewById(R.id.ids);
-            urls = itemView.findViewById(R.id.urls);
+           // id = itemView.findViewById(R.id.ids);
+           // urls = itemView.findViewById(R.id.urls);
             hostThumbnail = itemView.findViewById(R.id.hostThumbnail);
             itemView.setOnClickListener(this);
         }
