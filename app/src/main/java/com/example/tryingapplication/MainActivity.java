@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         calendar.clear();
         Long today = MaterialDatePicker.todayInUtcMilliseconds();
 
-        datePicker = findViewById(R.id.bt_pick_date);
+        datePicker=findViewById(R.id.bt_Pick_Date);
         datePicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,9 +121,6 @@ public class MainActivity extends AppCompatActivity {
 
                 long msDiff = endDate - startDate;
                 long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
-
-                TextView textViewDays = findViewById(R.id.daysSelected);
-                textViewDays.setText("" + daysDiff);
             }
         });
     }

@@ -39,4 +39,5 @@
     <string name="latitudeView">Latitude</string>
     <string name="btnBook">Book</string>
     <string name="OpenMap">MapView</string>
+    <string name="PickDate">Pick Date</string>
 </resources>
