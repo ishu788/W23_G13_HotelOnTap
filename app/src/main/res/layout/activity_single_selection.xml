@@ -41,16 +41,44 @@
         android:id="@+id/hotelName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="center|center_horizontal|center_vertical"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintHorizontal_bias="0.621"
         app:layout_constraintStart_toEndOf="@+id/finalNameView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.297" />
+        app:layout_constraintVertical_bias="0.304" />
+
+    <TextView
+        android:id="@+id/hotelLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.597"
+        app:layout_constraintStart_toEndOf="@+id/finalLocationView"
+        app:layout_constraintTop_toBottomOf="@+id/hotelName"
+        app:layout_constraintVertical_bias="0.062" />
+
+    <TextView
+        android:id="@+id/hotelPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.624"
+        app:layout_constraintStart_toEndOf="@+id/finalPriceView"
+        app:layout_constraintTop_toBottomOf="@+id/hotelLocation"
+        app:layout_constraintVertical_bias="0.081" />
 
     <TextView
         android:id="@+id/finalNameView"
@@ -93,33 +121,19 @@
         app:layout_constraintTop_toBottomOf="@+id/finalLocationView"
         app:layout_constraintVertical_bias="0.082" />
 
-    <TextView
-        android:id="@+id/hotelLocation"
+    <Button
+        android:id="@+id/openMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center|center_horizontal"
+        android:background="@drawable/txtgrad"
+        android:text="@string/OpenMap"
         android:textColor="#FFFFFF"
-        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.599"
-        app:layout_constraintStart_toEndOf="@+id/finalLocationView"
-        app:layout_constraintTop_toBottomOf="@+id/hotelName"
-        app:layout_constraintVertical_bias="0.058" />
-
-    <TextView
-        android:id="@+id/hotelPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.627"
-        app:layout_constraintStart_toEndOf="@+id/finalPriceView"
-        app:layout_constraintTop_toBottomOf="@+id/hotelLocation"
-        app:layout_constraintVertical_bias="0.082" />
+        app:layout_constraintHorizontal_bias="0.383"
+        app:layout_constraintStart_toEndOf="@+id/btnToPay"
+        app:layout_constraintTop_toBottomOf="@+id/hotelPrice"
+        app:layout_constraintVertical_bias="0.909" />
 
     <Button
         android:id="@+id/btnToPay"
@@ -130,24 +144,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.21"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/finalPriceView"
-        app:layout_constraintVertical_bias="0.798" />
-
-    <Button
-        android:id="@+id/openMap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/txtgrad"
-        android:text="@string/OpenMap"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.415"
-        app:layout_constraintStart_toEndOf="@+id/btnToPay"
-        app:layout_constraintTop_toBottomOf="@+id/hotelPrice"
-        app:layout_constraintVertical_bias="0.797" />
+        app:layout_constraintVertical_bias="0.911" />
 
     <ImageView
         android:id="@+id/img1"
@@ -157,7 +157,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btnToPay"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/finalPriceView"
-        app:layout_constraintVertical_bias="0.523"
+        app:layout_constraintVertical_bias="0.439"
         tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
