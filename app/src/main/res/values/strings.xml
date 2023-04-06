@@ -42,4 +42,16 @@
     <string name="PickDate">Pick Date</string>
     <string name="ButtonGetInfo">Search</string>
     <string name="HotelDetails">Hotel Details</string>
+    <string name="firstNameUser">First Name</string>
+    <string name="userLastName">Last name</string>
+    <string name="userPhone">Phone Number</string>
+    <string name="PersonInfo">Personal Information</string>
+    <string name="PeopleNumber">No. of people</string>
+    <string name="paybutton">Pay</string>
+    <string-array name="numberOfPeople">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
 </resources>
