@@ -56,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
     private List<ListItem> listItem;
     private List<String> images_url;
 
+    private Long startDate;
+    private Long endDate;
+    public Long daysDiff;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,9 +121,6 @@ public class MainActivity extends AppCompatActivity {
         listItem = new ArrayList<>();
 
 
-
-
-
         //setting on click listener
         btn_get.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -145,11 +146,14 @@ public class MainActivity extends AppCompatActivity {
         materialDatePicker.show(getSupportFragmentManager(), materialDatePicker.toString());
 
         materialDatePicker.addOnPositiveButtonClickListener((MaterialPickerOnPositiveButtonClickListener<Pair<Long, Long>>) selection -> {
-            Long startDate = selection.first;
-            Long endDate = selection.second;
+           startDate = selection.first;
+           endDate = selection.second;
 
             long msDiff = endDate - startDate;
-            long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
+            daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
+
+            Toast.makeText(this, "Days Select" + daysDiff, Toast.LENGTH_SHORT).show();
+
         });
     }
 
@@ -161,6 +165,10 @@ public class MainActivity extends AppCompatActivity {
     public void get()
     {
 
+
+        if(daysDiff==null){
+            daysDiff=1L;
+        }
         TextInputEditText txt_input  = findViewById(R.id.input_city);
         String city_search = txt_input.getText().toString();
 
@@ -211,7 +219,8 @@ public class MainActivity extends AppCompatActivity {
                                             o.get("price").getAsJsonObject().get("total").getAsString(),
                                             o.get("lat").getAsString(),
                                             o.get("lng").getAsString(),
-                                            images_url
+                                            images_url,
+                                            daysDiff.toString()
                                     );
                                     listItem.add(item);
                                 }

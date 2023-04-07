@@ -19,9 +19,10 @@
         app:circularflow_radiusInDP="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.247" />
+        app:layout_constraintVertical_bias="0.248" />
 
     <TextView
         android:id="@+id/textView3"
@@ -121,6 +122,17 @@
         app:layout_constraintTop_toBottomOf="@+id/finalLocationView"
         app:layout_constraintVertical_bias="0.082" />
 
+    <TextView
+        android:id="@+id/numberOfDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/numberPerson"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/finalPriceView" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/openMap"
         android:layout_width="wrap_content"
@@ -183,5 +195,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.801"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/selectedDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toEndOf="@+id/numberOfDays"
+        app:layout_constraintTop_toBottomOf="@+id/hotelPrice" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

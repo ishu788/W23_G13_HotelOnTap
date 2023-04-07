@@ -12,6 +12,12 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class Bookings extends AppCompatActivity {
 
+
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +45,9 @@ public class Bookings extends AppCompatActivity {
                 return false;
             }
         });
+
+
+
 
     }
 }

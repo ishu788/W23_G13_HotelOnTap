@@ -83,6 +83,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             intent.putExtra("img1", listitems.get(position).getImage_item().get(2));
             intent.putExtra("img2", listitems.get(position).getImage_item().get(3));
             intent.putExtra("img3", listitems.get(position).getImage_item().get(4));
+            intent.putExtra("daysSelected",listitems.get(position).getDaysSelected());
 
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 

@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.squareup.picasso.Picasso;
 
+
+
 public class SingleSelection extends AppCompatActivity {
 
     @Override
@@ -31,6 +33,10 @@ public class SingleSelection extends AppCompatActivity {
 
         Button btnMap = findViewById(R.id.openMap);
 
+        TextView selectedDays = findViewById(R.id.selectedDays);
+
+
+
 
 
 //gg
@@ -43,6 +49,7 @@ public class SingleSelection extends AppCompatActivity {
         String image1= intent1.getStringExtra("img1");
         String image2= intent1.getStringExtra("img2");
         String image3= intent1.getStringExtra("img3");
+        String daysSelected = intent1.getStringExtra("daysSelected");
 
 
 
@@ -60,6 +67,7 @@ public class SingleSelection extends AppCompatActivity {
         hotelName.setText(name);
         hotelUrl.setText(url);
         hotelPrice.setText(price);
+        selectedDays.setText(daysSelected);
 
 
 

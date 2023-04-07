@@ -14,6 +14,13 @@ public class ListItem {
     private String latitude;
     private String longitude;
 
+
+    private String daysSelected = "1";
+
+    public String getDaysSelected() {
+        return daysSelected;
+    }
+
     public String getPrice() {
         return price;
     }
@@ -46,7 +53,7 @@ public class ListItem {
         return url;
     }
 
-    public ListItem(String id, String name, String url, String hostThumbnail,String price,String latitude, String longitude, List images) {
+    public ListItem(String id, String name, String url, String hostThumbnail,String price,String latitude, String longitude, List images,String daysSelected) {
         this.id = id;
         this.name = name;
         this.url = url;
@@ -55,6 +62,7 @@ public class ListItem {
         this.latitude=latitude;
         this.longitude=longitude;
         this.price=price;
+        this.daysSelected =daysSelected;
 
     }
 }
