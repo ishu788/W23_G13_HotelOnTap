@@ -1,6 +1,8 @@
 package com.example.tryingapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,8 +14,10 @@ import androidx.core.util.Pair;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -57,36 +61,66 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Date Picker
 
+        //Initiating and assigning bottom app bar navigation
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        //set home selected
+        bottomNavigationView.setSelectedItemId(R.id.home);
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.home:
+                        return true;
+                    case R.id.booking:
+                        startActivity(new Intent(getApplicationContext(),Bookings.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(),Profile.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
+            }
+
+        });
+
+
+
+
+
+        //Date Picker
         Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
         calendar.clear();
         Long today = MaterialDatePicker.todayInUtcMilliseconds();
-
         datePicker=findViewById(R.id.bt_Pick_Date);
         datePicker.setOnClickListener(v -> DatePick());
 
 
 
-        //creating a new object to capture properties of results
 
+
+        //creating a new object to capture properties of results
         //defining new http client
         client = new OkHttpClient();
 
+
+
+
         // reference to design elements
-
-
         Button btn_get = findViewById(R.id.button_get);
-
         recyclerView = findViewById(R.id.recycler_view1);
         recyclerView.setHasFixedSize(true);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         listItem = new ArrayList<>();
 
 
-        //setting on click listener
 
+
+
+        //setting on click listener
         btn_get.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+    //Date Picker Function
     public void DatePick(){
 
         System.out.println("DatePicked");
@@ -118,6 +152,8 @@ public class MainActivity extends AppCompatActivity {
             long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
         });
     }
+
+
 
 
 

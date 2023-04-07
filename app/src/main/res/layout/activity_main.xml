@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/splash11"
-    android:backgroundTint="#A60E0D0D"
+    android:backgroundTint="#9C000000"
     android:backgroundTintMode="src_atop"
     tools:context=".MainActivity">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view1"
-        android:layout_width="404dp"
-        android:layout_height="677dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="382dp"
+        android:layout_height="525dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="11dp"
         android:layout_marginTop="200dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.707"
@@ -26,11 +28,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
-        android:layout_width="303dp"
-        android:layout_height="61dp"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="45dp"
         android:background="@drawable/bgbtn"
         android:textColorHint="#FFFFFF"
         app:boxCornerRadiusBottomEnd="20dp"
@@ -47,7 +52,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_city"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
+            android:layout_height="match_parent"
             android:background="@drawable/transparent_background"
             android:foregroundGravity="center_vertical"
             android:hint="@string/city_name"
@@ -64,7 +69,12 @@
         android:id="@+id/button_get"
         android:layout_width="110dp"
         android:layout_height="49dp"
-        android:layout_marginTop="28dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="117dp"
+        android:layout_marginEnd="256dp"
         android:layout_weight="1"
         android:background="@drawable/txtgrad"
         android:text="@string/ButtonGetInfo"
@@ -79,12 +89,31 @@
 
         android:layout_width="111dp"
         android:layout_height="49dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="264dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="229dp"
+        android:layout_marginTop="114dp"
+        android:layout_marginEnd="70dp"
         android:background="@drawable/txtgrad"
         android:text="@string/PickDate"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:backgroundTintMode="src_atop"
+        app:backgroundTint="#D81D5665"
+        app:itemIconTint="#FFFFFF"
+        app:itemTextColor="@android:color/white"
+        app:menu="@menu/menu_navigation" />
+
+
+</RelativeLayout>
+
+

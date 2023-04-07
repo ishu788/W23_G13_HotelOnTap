@@ -17,6 +17,20 @@
         android:theme="@style/Theme.TryingApplication"
         tools:targetApi="33">
         <activity
+            android:name=".Profile"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Bookings"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".UserInformation"
             android:exported="false">
             <meta-data
