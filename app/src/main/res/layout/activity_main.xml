@@ -60,7 +60,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_get"
         android:layout_width="110dp"
         android:layout_height="49dp"
@@ -74,7 +74,7 @@
         app:layout_constraintStart_toEndOf="@+id/bt_Pick_Date"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_Pick_Date"
 
         android:layout_width="111dp"

@@ -121,7 +121,7 @@
         app:layout_constraintTop_toBottomOf="@+id/finalLocationView"
         app:layout_constraintVertical_bias="0.082" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/openMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
         app:layout_constraintTop_toBottomOf="@+id/hotelPrice"
         app:layout_constraintVertical_bias="0.909" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnToPay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
