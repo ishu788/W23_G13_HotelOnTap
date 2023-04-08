@@ -1,17 +1,28 @@
 package com.example.tryingapplication;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class PayActivity extends AppCompatActivity {
+
+
+
+
+
+
+
+
+
 
     TextView txtCardType;
     RadioGroup CardType;
@@ -30,6 +41,15 @@ public class PayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
 
+
+        Intent intent3 = getIntent();
+
+        String price = intent3.getStringExtra("price");
+        String numberPerson = intent3.getStringExtra("persons");
+
+
+
+
         txtCardType = findViewById(R.id.txtCardType);
         CardType = findViewById(R.id.cardtype);
         txtNameOnCard = findViewById(R.id.txtNameOnCard);
@@ -41,6 +61,16 @@ public class PayActivity extends AppCompatActivity {
         txtSecurityCode = findViewById(R.id.txtSecurityCode);
         editSecurityCode = findViewById(R.id.editSecurityCode);
         btnPay = findViewById(R.id.btnPay);
+
+
+        TextView finalPrice = findViewById(R.id.finalPrice);
+        Toast.makeText(this, price, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, numberPerson, Toast.LENGTH_SHORT).show();
+
+//        int finalPrices = (Integer.parseInt(price)*Integer.parseInt(numberPerson));
+//        finalPrice.setText(finalPrices);
+
+
 
         CardType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override

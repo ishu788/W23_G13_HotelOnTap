@@ -66,7 +66,7 @@ public class SingleSelection extends AppCompatActivity {
         //setting everything else
         hotelName.setText(name);
         hotelUrl.setText(url);
-        hotelPrice.setText(price);
+        hotelPrice.setText("$" + price);
         selectedDays.setText(daysSelected);
 
 
@@ -87,6 +87,8 @@ public class SingleSelection extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SingleSelection.this, UserInformation.class);
+                intent.putExtra("price", price);
+
                 startActivity(intent);
             }
         });

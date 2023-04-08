@@ -13,10 +13,20 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class UserInformation extends AppCompatActivity {
 
+
+
+    int selectedPerson=1;
+    String choice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_information);
+
+
+        Intent intent = getIntent();
+
+        String price = intent.getStringExtra("price");
+        Toast.makeText(this, price, Toast.LENGTH_SHORT).show();
 
 
         Spinner spinner = findViewById(R.id.spinner_people);
@@ -27,8 +37,10 @@ public class UserInformation extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String choice = parent.getItemAtPosition(position).toString();
+                choice = parent.getItemAtPosition(position).toString();
                 Toast.makeText(UserInformation.this, choice, Toast.LENGTH_SHORT).show();
+
+
             }
 
             @Override
@@ -42,9 +54,45 @@ public class UserInformation extends AppCompatActivity {
         btn_Payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserInformation.this, PayActivity.class);
-                startActivity(intent);
+
+
+               int noOfPerson =  selectedChoice();
+
+               String personCount =String.valueOf(noOfPerson);
+
+               System.out.println(personCount);
+               System.out.println(price);
+                Intent intent3 = new Intent(getApplicationContext(), PayActivity.class);
+                intent3.putExtra("persons" , personCount);
+                intent3.putExtra("price",price);
+                intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                getApplicationContext().startActivity(intent3);
             }
         });
+    }
+
+
+    public int selectedChoice(){
+
+
+
+        switch (choice){
+            case "1":
+                selectedPerson=1;
+                break;
+            case "2":
+                selectedPerson=2;
+                break;
+            case "3":
+                selectedPerson=3;
+                break;
+            case "4":
+                selectedPerson=4;
+                break;
+            default:
+                break;
+
+        }
+        return selectedPerson;
     }
 }
