@@ -1,79 +1,69 @@
 package com.example.tryingapplication;
 
 public class CardInfo {
+    private String NameOnCard;
+    private String CardNumber;
+    private String ExpiryDate;
+    private String CardType;
+    private String securityCode;
 
-
-    private String Id;
-
-    private String Name;
-    private int Number;
-    private CardType cardType;
-    private int date;
-    private int code;
-
-    public CardInfo(String id, String name, int number, CardType cardType, int date, int code) {
-        Id = id;
-        Name = name;
-        Number = number;
-        this.cardType = cardType;
-        this.date = date;
-        this.code = code;
+    public CardInfo() {
     }
 
-    public String getId() {
-
-        return Id;
+    public CardInfo(String nameOnCard, String cardNumber, String expiryDate, String cardType, String securityCode) {
+        NameOnCard = nameOnCard;
+        CardNumber = cardNumber;
+        ExpiryDate = expiryDate;
+        CardType = cardType;
+        this.securityCode = securityCode;
     }
 
-    public void setId(String id) {
-
-        Id = id;
+    public String getNameOnCard() {
+        return NameOnCard;
     }
 
-    public String getName() {
-
-        return Name;
+    public void setNameOnCard(String nameOnCard) {
+        NameOnCard = nameOnCard;
     }
 
-    public void setName(String name) {
-
-        Name = name;
+    public String getCardNumber() {
+        return CardNumber;
     }
 
-    public int getNumber() {
-
-        return Number;
+    public void setCardNumber(String cardNumber) {
+        CardNumber = cardNumber;
     }
 
-    public void setNumber(int number) {
-
-        Number = number;
+    public String getExpiryDate() {
+        return ExpiryDate;
     }
 
-    public int getDate() {
-
-        return date;
+    public void setExpiryDate(String expiryDate) {
+        ExpiryDate = expiryDate;
     }
 
-    public void setDate(int date) {
-        this.date = date;
+    public String getCardType() {
+        return CardType;
     }
 
-    public int getCode() {
-
-        return code;
+    public void setCardType(String cardType) {
+        CardType = cardType;
     }
 
-    public CardType getCardType() {
-        return cardType;
+    public String getSecurityCode() {
+        return securityCode;
     }
 
-    public void setCardType(CardType cardType) {
-        this.cardType = cardType;
+    public void setSecurityCode(String securityCode) {
+        this.securityCode = securityCode;
     }
-
-    public void setCode(int code) {
-
-        this.code = code;
+    @Override
+    public String toString() {
+        return "CardInfo{" +
+                "  NameOnCard='" + NameOnCard + '\'' +
+                ", CardNumber='" + CardNumber + '\'' +
+                ", ExpiryDate='" + ExpiryDate + '\'' +
+                ", securityCode='" + securityCode + '\'' +
+                '}';
     }
 }
