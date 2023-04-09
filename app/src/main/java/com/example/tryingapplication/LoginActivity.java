@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         loginEmail=findViewById(R.id.LoginEmail);
         loginPass=findViewById(R.id.LoginPassword);
-      loginButton=findViewById(R.id.loginBtn);
+        loginButton=findViewById(R.id.loginBtn);
         signupRedirectButton=findViewById(R.id.signUpRedirect);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);

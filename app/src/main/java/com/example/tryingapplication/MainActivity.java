@@ -152,7 +152,8 @@ public class MainActivity extends AppCompatActivity {
             long msDiff = endDate - startDate;
             daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
 
-            Toast.makeText(this, "Days Select" + daysDiff, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, startDate.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, endDate.toString(), Toast.LENGTH_SHORT).show();
 
         });
     }
@@ -209,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
                                 {
                                     JsonObject o = jsonArray.get(i).getAsJsonObject();
                                     JsonArray imagesArray = o.getAsJsonObject().get("images").getAsJsonArray();
-                                    System.out.println(imagesArray.size());
+
                                    images_url = gson.fromJson(imagesArray,List.class);
                                     ListItem item = new ListItem(
                                             o.get("type").getAsString(),
