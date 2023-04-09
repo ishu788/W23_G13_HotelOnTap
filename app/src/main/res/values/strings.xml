@@ -70,4 +70,11 @@
     <string name="txtPayment">Pay</string>
     <string name="payment">Payment:</string>
     <string name="spinnergg">No. of people</string>
+    <string name="CardType">Card Type</string>
+    <string name="NameOnCard">Name On Card</string>
+    <string name="txCardNumber">Card Number</string>
+    <string name="txCardType">Card Type</string>
+    <string name="txNameOnCard">Name On Card</string>
+    <string name="txExpirDate">Expire Date</string>
+    <string name="txSecurityCode">Security Code</string>
 </resources>

@@ -3,6 +3,8 @@ package com.example.tryingapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +27,7 @@ public class PayActivity extends AppCompatActivity {
     TextView txtCardType;
     RecyclerView recyclerView;
     Button btnPay;
-
+    CardInfo cardInfo = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +71,16 @@ public class PayActivity extends AppCompatActivity {
         txtSecurityCode = findViewById(R.id.txtSecurityCode);
         edtSecurityCode = findViewById(R.id.editSercuityCode);
         btnPay = findViewById(R.id.btnPayment);
+
+        edtName.setFilters(new InputFilter[]{
+
+                new InputFilter() {
+                    @Override
+                    public CharSequence filter(CharSequence cs, int start, int end, Spanned dest, int dstart, int dend) {
+                        return cs.toString().replaceAll("[^a-zA-Z ]*","");
+                    }
+                }
+        });
 
         edtCardNum.addTextChangedListener(new TextWatcher() {
 
@@ -137,25 +149,30 @@ public class PayActivity extends AppCompatActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
+            public void afterTextChanged(Editable editable) {
 
             }
         });
+        cardInfo = (CardInfo) getIntent().getSerializableExtra("card_data");
+        if(cardInfo != null) {
+            edtName.setText(cardInfo.getNameOnCard());
+            edtCardNum.setText(cardInfo.getCardNumber());
+            edtExpiry.setText(cardInfo.getExpiryDate());
+            edtSecurityCode.setText(cardInfo.getSecurityCode());
+        }
+
         btnPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                CardInfo cardInfo = new CardInfo();
+                cardInfo = new CardInfo();
                 cardInfo.setNameOnCard(edtName.getText().toString());
                 cardInfo.setCardNumber(edtCardNum.getText().toString());
                 cardInfo.setExpiryDate(edtExpiry.getText().toString());
                 cardInfo.setSecurityCode(edtSecurityCode.getText().toString());
 
                 Intent intent = new Intent(getApplicationContext(), PaymentDetailsActivity.class);
-                intent.putExtra("card_name", cardInfo.getNameOnCard());
-                intent.putExtra("card_num", cardInfo.getCardNumber());
-                intent.putExtra("card_date", cardInfo.getExpiryDate());
-                intent.putExtra("card_Security",cardInfo.getSecurityCode());
+                intent.putExtra("card_data", (CharSequence) cardInfo);
                 startActivity(intent);
             }
         });

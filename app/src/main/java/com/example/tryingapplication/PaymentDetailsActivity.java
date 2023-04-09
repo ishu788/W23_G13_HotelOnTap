@@ -5,34 +5,31 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PaymentDetailsActivity extends AppCompatActivity {
-
     Button btn,btnBack;
+    TextView txtName, txtNum, txtEDt, txtSC;
+    CardInfo cardInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_details);
+
+        txtName = findViewById(R.id.txtNameOnCard);
+        txtNum = findViewById(R.id.txtCardNumber);
+        txtEDt = findViewById(R.id.txtExpDt);
+        txtSC = findViewById(R.id.txtSecuityCd);
         btn = findViewById(R.id.btnPaymentDet);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // To retrieve object in second Activity
-                //CardInfo cardInfo = (CardInfo) getIntent().getSerializableExtra("card_data");
 
-               String card_name = getIntent().getStringExtra("card_name");
-               String card_num = getIntent().getStringExtra("card_num");
-               String card_date = getIntent().getStringExtra("card_date");
-               String card_security = getIntent().getStringExtra("card_Security");
                 AlertDialog alert = new AlertDialog.Builder(PaymentDetailsActivity.this).create();
                 alert.setTitle("Card App");
-                alert.setMessage("Name: " + card_name + "\n"+
-                                "Number:" + card_num + "\n" +
-                                "date:" + card_date + "\n" +
-                                "security" + card_security + "\n"
-                );
+                alert.setMessage("Payment done successfully");
                 alert.show();
             }
         });
@@ -40,7 +37,10 @@ public class PaymentDetailsActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), PayActivity.class));
+                //startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("card_data", (CharSequence) cardInfo);
+                startActivity(intent);
             }
         });
     }
