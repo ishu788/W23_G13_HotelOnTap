@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class UserInformation extends AppCompatActivity {
 
 
@@ -30,9 +32,23 @@ public class UserInformation extends AppCompatActivity {
 
 
         Spinner spinner = findViewById(R.id.spinner_people);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.numberOfPeople, android.R.layout.simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+
+
+        ArrayList<String>arrayList  = new ArrayList<>();
+
+        for(int i = 0; i< 4;i++){
+            arrayList.add(String.valueOf(i));
+
+        }
+
+
+
+       ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.numberOfPeople, android.R.layout.simple_spinner_dropdown_item);
+       adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       spinner.setAdapter(adapter);
+       spinner.setPrompt("please Select No. of people");
+
+
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

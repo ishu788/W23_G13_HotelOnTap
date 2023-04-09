@@ -1,6 +1,5 @@
 package com.example.tryingapplication;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -8,11 +7,8 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,16 +27,15 @@ public class PayActivity extends AppCompatActivity {
     Button btnPay;
 
 
-
     @Override
-    protected void onCreate(Bundle saveInstanceState){
-        super.onCreate(saveInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
 
         CardType[] cardList = new CardType[]{
 
                 new CardType("Master", R.drawable.mastercard),
-                new CardType("VISA",R.drawable.visa),
+                new CardType("VISA", R.drawable.visa),
         };
         recyclerView = findViewById(R.id.recyclerView);
         CardAdapter cardAdapter = new CardAdapter(cardList);
@@ -62,6 +57,7 @@ public class PayActivity extends AppCompatActivity {
         edtCardNum.addTextChangedListener(new TextWatcher() {
 
             final char space = ' ';
+
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -75,25 +71,24 @@ public class PayActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 int pos = 0;
-                while (true){
+                while (true) {
                     if (pos >= s.length())
                         break;
 
                     if (space == s.charAt(pos) && (((pos + 1) % 5)
-                            != 0 || pos + 1 == s.length())){
+                            != 0 || pos + 1 == s.length())) {
                         s.delete(pos, pos + 1);
-                    }
-                    else {
+                    } else {
                         pos++;
                     }
                 }
                 pos = 4;
-                while (true){
+                while (true) {
                     if (pos >= s.length())
                         break;
                     final char c = s.charAt(pos);
 
-                    if ("0123456789".indexOf(c) >= 0){
+                    if ("0123456789".indexOf(c) >= 0) {
                         s.insert(pos, " " + space);
                     }
 
@@ -113,11 +108,10 @@ public class PayActivity extends AppCompatActivity {
 
                 String ch = s.toString();
 
-                if(ch.length() == 2 && start == 1){
+                if (ch.length() == 2 && start == 1) {
                     edtExpiry.setText(ch + "/");
                     edtExpiry.setSelection(ch.length() + 1);
-                }
-                else if (ch.length() == 2 && before == 1){
+                } else if (ch.length() == 2 && before == 1) {
 
                     ch = ch.substring(0, 1);
                     edtExpiry.setText(ch);
@@ -141,16 +135,11 @@ public class PayActivity extends AppCompatActivity {
                 cardInfo.setExpiryDate(edtExpiry.getText().toString());
                 cardInfo.setSecurityCode(edtSecurityCode.getText().toString());
 
-                Intent intent = new Intent(getApplicationContext(),PaymentDetailsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PaymentDetailsActivity.class);
                 intent.putExtra("card_data", cardInfo.toString());
                 startActivity(intent);
             }
         });
 
-
-
-
-
     }
-
 }
