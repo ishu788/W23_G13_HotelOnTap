@@ -30,10 +30,10 @@
     <string name="radioMasterCard">Master Card</string>
     <string name="radioAmExCard">AmExCard</string>
     <string name="radioGooglePay">Google Pay</string>
-    <string name="txtNameOnCard">Name On Card</string>
-    <string name="txtCardNumber">Card Number</string>
-    <string name="txtExpiryCode">Expiry Date</string>
-    <string name="txtSecurityCode">Security Code</string>
+    <string name="txtNameOnCard">Name On Card: </string>
+    <string name="txtCardNumber">Card Number: </string>
+    <string name="txtExpiryCode">Expiry Date: </string>
+    <string name="txtSecurityCode">Security Code: </string>
     <string name="btnPay">Pay</string>
     <string name="longitiude">Longitude</string>
     <string name="latitudeView">Latitude</string>
@@ -66,6 +66,8 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="numberPerson">Number of Days: </string>
-    <string name="txtExpirdDate">Expire Date</string>
+    <string name="txtExpirdDate">Expire Date: </string>
     <string name="txtPayment">Pay</string>
+    <string name="payment">Payment:</string>
+    <string name="spinnergg">No. of people</string>
 </resources>

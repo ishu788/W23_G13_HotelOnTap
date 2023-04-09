@@ -1,12 +1,12 @@
 package com.example.tryingapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class PaymentDetailsActivity extends AppCompatActivity {
 
@@ -20,11 +20,19 @@ public class PaymentDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // To retrieve object in second Activity
-                CardInfo cardInfo = (CardInfo) getIntent().getSerializableExtra("card_data");
+                //CardInfo cardInfo = (CardInfo) getIntent().getSerializableExtra("card_data");
 
+               String card_name = getIntent().getStringExtra("card_name");
+               String card_num = getIntent().getStringExtra("card_num");
+               String card_date = getIntent().getStringExtra("card_date");
+               String card_security = getIntent().getStringExtra("card_Security");
                 AlertDialog alert = new AlertDialog.Builder(PaymentDetailsActivity.this).create();
                 alert.setTitle("Card App");
-                alert.setMessage(cardInfo.toString());
+                alert.setMessage("Name: " + card_name + "\n"+
+                                "Number:" + card_num + "\n" +
+                                "date:" + card_date + "\n" +
+                                "security" + card_security + "\n"
+                );
                 alert.show();
             }
         });

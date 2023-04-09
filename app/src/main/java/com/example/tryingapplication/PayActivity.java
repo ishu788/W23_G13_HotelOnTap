@@ -32,6 +32,22 @@ public class PayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
 
+
+        TextView payPrice = findViewById(R.id.paymentAmount);
+
+
+        String price = getIntent().getStringExtra("price");
+        String personNumber = getIntent().getStringExtra("persons");
+
+        int prices = Integer.parseInt(price);
+        int persons= Integer.parseInt(personNumber);
+
+        int finalValue = prices * persons;
+
+
+        payPrice.setText( "$" + String.valueOf(finalValue));
+
+
         CardType[] cardList = new CardType[]{
 
                 new CardType("Master", R.drawable.mastercard),
@@ -136,7 +152,10 @@ public class PayActivity extends AppCompatActivity {
                 cardInfo.setSecurityCode(edtSecurityCode.getText().toString());
 
                 Intent intent = new Intent(getApplicationContext(), PaymentDetailsActivity.class);
-                intent.putExtra("card_data", cardInfo.toString());
+                intent.putExtra("card_name", cardInfo.getNameOnCard());
+                intent.putExtra("card_num", cardInfo.getCardNumber());
+                intent.putExtra("card_date", cardInfo.getExpiryDate());
+                intent.putExtra("card_Security",cardInfo.getSecurityCode());
                 startActivity(intent);
             }
         });
