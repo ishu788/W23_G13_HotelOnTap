@@ -16,10 +16,6 @@ public class ListItem {
 
 
     private String daysSelected = "1";
-    private String startDate;
-    private String endDate;
-
-
 
     public String getDaysSelected() {
         return daysSelected;
@@ -67,7 +63,6 @@ public class ListItem {
         this.longitude=longitude;
         this.price=price;
         this.daysSelected =daysSelected;
-
 
     }
 }

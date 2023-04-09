@@ -74,7 +74,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public void onClick(View v) {
             int position = getAdapterPosition();
             Intent intent = new Intent(context,SingleSelection.class);
-
+           // Toast.makeText(context, "position"+position, Toast.LENGTH_SHORT).show();
             intent.putExtra("name",listitems.get(position).getName());
             intent.putExtra("location",listitems.get(position).getId());
             intent.putExtra("price",listitems.get(position).getPrice());

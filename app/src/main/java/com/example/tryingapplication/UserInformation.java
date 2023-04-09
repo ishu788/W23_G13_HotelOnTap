@@ -33,23 +33,33 @@ public class UserInformation extends AppCompatActivity {
         EditText lastName = findViewById(R.id.userLastName);
         EditText phone = findViewById(R.id.userPhone);
 
+
+
+
         Intent intent = getIntent();
+
         String price = intent.getStringExtra("price");
-        String hotelName = intent.getStringExtra("hotelName");
-        String hotelPic = intent.getStringExtra("pic");
-        String selectedDays = intent.getStringExtra("selectedDays");
+        Toast.makeText(this, price, Toast.LENGTH_SHORT).show();
+
 
         Spinner spinner = findViewById(R.id.spinner_people);
+
+
         ArrayList<String>arrayList  = new ArrayList<>();
+
         for(int i = 0; i< 4;i++){
             arrayList.add(String.valueOf(i));
 
         }
 
+
+
        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.numberOfPeople, android.R.layout.simple_spinner_dropdown_item);
        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
        spinner.setAdapter(adapter);
        spinner.setPrompt("please Select No. of people");
+
+
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -66,6 +76,8 @@ public class UserInformation extends AppCompatActivity {
             }
         });
 
+
+
         Button btn_Payment = findViewById(R.id.btn_Payment);
         btn_Payment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,17 +88,13 @@ public class UserInformation extends AppCompatActivity {
                         if(!phone.getText().toString().isEmpty()){
                             int noOfPerson =  selectedChoice();
 
-
-                            MyDatabaseHelper myDB = new MyDatabaseHelper(UserInformation.this);
-                            myDB.addBooking(hotelName,hotelPic,firstName.getText().toString(),price,selectedDays);
-
-
                             String personCount =String.valueOf(noOfPerson);
 
+                            System.out.println(personCount);
+                            System.out.println(price);
                             Intent intent3 = new Intent(getApplicationContext(), PayActivity.class);
                             intent3.putExtra("persons" , personCount);
                             intent3.putExtra("price",price);
-
                             intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             getApplicationContext().startActivity(intent3);
                         }
