@@ -151,11 +151,11 @@ public class PayActivity extends AppCompatActivity {
                 cardInfo.setExpiryDate(edtExpiry.getText().toString());
                 cardInfo.setSecurityCode(edtSecurityCode.getText().toString());
 
-                Intent intent = new Intent(getApplicationContext(), PaymentDetailsActivity.class);
-                intent.putExtra("card_name", cardInfo.getNameOnCard());
-                intent.putExtra("card_num", cardInfo.getCardNumber());
-                intent.putExtra("card_date", cardInfo.getExpiryDate());
-                intent.putExtra("card_Security",cardInfo.getSecurityCode());
+                Intent intent = new Intent(PayActivity.this, Bookings.class);
+//                intent.putExtra("card_name", cardInfo.getNameOnCard());
+//                intent.putExtra("card_num", cardInfo.getCardNumber());
+//                intent.putExtra("card_date", cardInfo.getExpiryDate());
+//                intent.putExtra("card_Security",cardInfo.getSecurityCode());
                 startActivity(intent);
             }
         });

@@ -3,6 +3,7 @@ package com.example.tryingapplication;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -57,6 +58,8 @@ public class MyDatabaseHelper  extends SQLiteOpenHelper {
 
     void addBooking(String hotelName, String location, String userName,String price, String days){
         SQLiteDatabase db = this.getWritableDatabase();
+
+        db.execSQL(" Delete FROM  " + TABLE_NAME);
         ContentValues cv = new ContentValues();
 
         cv.put(COLUMN_NAME, hotelName);
@@ -65,15 +68,27 @@ public class MyDatabaseHelper  extends SQLiteOpenHelper {
         cv.put(PRICE,price);
         cv.put(DAYS,days);
 
-
-
         long result = db.insert(TABLE_NAME, null, cv);
-
         if(result == -1){
             Toast.makeText(context, "application failed", Toast.LENGTH_SHORT).show();
         }
         else{
             Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    Cursor readAllData(){
+
+        System.out.println("its here in  read data");
+        Cursor cursor = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+            String query = "Select * FROM " + TABLE_NAME;
+            if(db !=null){
+                cursor = db.rawQuery(query,null);
+            }
+            else{
+                Toast.makeText(context, "No data", Toast.LENGTH_SHORT).show();
+            }
+        return  cursor;
     }
 }

@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/splash11"
+    android:backgroundTint="#99000000"
+    android:backgroundTintMode="src_atop"
     tools:context=".Bookings">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerBooking"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

@@ -80,12 +80,12 @@ public class UserInformation extends AppCompatActivity {
                             MyDatabaseHelper myDB = new MyDatabaseHelper(UserInformation.this);
                             myDB.addBooking(hotelName,hotelPic,firstName.getText().toString(),price,selectedDays);
 
-
                             String personCount =String.valueOf(noOfPerson);
 
                             Intent intent3 = new Intent(getApplicationContext(), PayActivity.class);
                             intent3.putExtra("persons" , personCount);
                             intent3.putExtra("price",price);
+
 
                             intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             getApplicationContext().startActivity(intent3);
