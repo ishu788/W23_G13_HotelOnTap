@@ -30,11 +30,17 @@ public class SingleSelection extends AppCompatActivity {
         ImageView img2 = findViewById(R.id.img2);
         ImageView img3 = findViewById(R.id.img3);
 
+
         Button btnMap = findViewById(R.id.openMap);
+
         TextView selectedDays = findViewById(R.id.selectedDays);
 
-        Intent intent1 = getIntent();
 
+
+
+
+//gg
+        Intent intent1 = getIntent();
         String name = intent1.getStringExtra("name");
         String url = intent1.getStringExtra("location");
         String price = intent1.getStringExtra("price");
@@ -44,6 +50,9 @@ public class SingleSelection extends AppCompatActivity {
         String image2= intent1.getStringExtra("img2");
         String image3= intent1.getStringExtra("img3");
         String daysSelected = intent1.getStringExtra("daysSelected");
+
+
+
 
 
         //loading images
@@ -79,10 +88,6 @@ public class SingleSelection extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(SingleSelection.this, UserInformation.class);
                 intent.putExtra("price", price);
-                intent.putExtra("hotelName",name);
-                intent.putExtra("pic",image2);
-                intent.putExtra("selectedDays",daysSelected);
-
 
                 startActivity(intent);
             }
